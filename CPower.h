@@ -1,14 +1,16 @@
+/*! @file CPower.h
+	@brief A class for power functions
+	@author Mario Opisso
+*/
+
 #ifndef POWER_H
 #define POWER_H
 
 #include "CFunction.h"
 
-/*#include <iostream>
-#include <cmath>
-#include <cstring>
 
-using namespace std;*/
-
+/// @class Power
+/// @brief a base class for power
 class Power : public Function
 {
 	private: 
@@ -16,22 +18,42 @@ class Power : public Function
 		double  e_coeff; 
 		
 	public: 
+		///@name CONTRUCTORS/DESTRUCTOR
+		///@{
 		Power();
-		Power(const double k_coefficent, double e_coefficent);
+		Power(double k_coefficient, double e_coefficient);
 		Power(const Power& p);
 		~Power();
+		///@}
 		
+		///@name OPERATORS
+		/// @{
 		Power& operator=(const Power& p);
 		bool operator==(const Power& p);
+		/// @}
 		
-		void SetPower(const double k_coefficent, double e_coefficent);
-		double GetValue(double in);
-		
+		///@name BASIC HANDLING
+		/// @{
 		void Reset();
+		/// @}
 		
-		void ErrorMessage(const char *string); 
-		void WarningMessage(const char *string);
+		///@name SETTER
+		/// @{
+		void SetPower(double k_coefficient, double e_coefficient);
+		/// @}
+		
+		///@name GETTER
+		/// @{
+		double GetValue(double in);
+		///@}
+		
+		//void ErrorMessage(const char *string); 
+		//void WarningMessage(const char *string);
+		
+		///@name DEBUG AND SERIALIZATION
+		/// @{
 		void Dump();
+		///@}
 };
 
 #endif
